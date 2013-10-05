@@ -7,9 +7,8 @@ class News():
         import datetime
 
         date = datetime.datetime.now()
-        request = httplib.HTTPConnection('google.com', 80)
+        request = httplib.HTTPConnection('news.google.com', 80)
         request.connect()
-        request.request(
-            'GET', '/#q=news+/' + str(date))
+        request.request('GET', '/')
         response = request.getresponse()
-        return json.loads(response.read())
+        return response.read()
